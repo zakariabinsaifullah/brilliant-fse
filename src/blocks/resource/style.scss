@@ -1,0 +1,191 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Resource Block
+// ─────────────────────────────────────────────────────────────────────────────
+
+.wp-block-brilliant-resource {
+    --icon-bg: linear-gradient(180deg, #6c080a 0%, #9d272d 100%);
+    --icon-color: #ffffff;
+    --title-color: #111111;
+    --title-size: 22px;
+    --desc-color: #444444;
+    --desc-size: 16px;
+    --link-color: #111111;
+    --card-bg: #ffffff;
+    --accent-color: #7a1e2b;
+    padding-bottom: 50px;
+
+    .brilliant-resource-card-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+
+        &:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+    }
+
+    .brilliant-resource-card {
+        position: relative;
+        overflow: visible;
+        cursor: pointer;
+
+        // ── Hidden content — revealed on hover ────────────────────────────────
+        // max-height collapses the layout; translateY + opacity give the polished
+        // "rise up & fade in" feel that masks the max-height easing curve.
+        // All three transitions run simultaneously so the motion feels unified.
+        .hidden-content {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(10px);
+            transition:
+                max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        // ── Image ─────────────────────────────────────────────────────────────
+        &__image-wrap {
+            display: block;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+
+        // ── Content panel — absolute, overlaps bottom of image ────────────────
+        &__content {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            background: var(--card-bg);
+            padding: 15px 15px 15px 0;
+            box-sizing: border-box;
+            width: calc(100% - 50px);
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+            &:after {
+                position: absolute;
+                top: -20px;
+                left: 40px;
+                content: '';
+                width: 0;
+                height: 0;
+                border-bottom: 20px solid var(--card-bg);
+                border-left: 30px solid transparent;
+            }
+        }
+
+        // ── Inner flex row: icon + text ───────────────────────────────────────
+        &__inner-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: -15px;
+        }
+
+        // ── Icon ──────────────────────────────────────────────────────────────
+        &__icon-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--icon-bg);
+            color: var(--icon-color);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 3;
+            padding: 20px;
+            box-sizing: border-box;
+
+            svg {
+                display: block;
+                width: 28px;
+                height: 28px;
+                fill: currentColor;
+            }
+        }
+
+        // ── Title ─────────────────────────────────────────────────────────────
+        &__title {
+            margin: 0;
+            font-size: var(--title-size);
+            color: var(--title-color);
+            font-weight: 400;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        // ── Description (inside .hidden-content) ──────────────────────────────
+        &__desc {
+            // Reset the old grid trick — .hidden-content now owns the animation
+            display: block;
+        }
+
+        &__desc-text {
+            margin: 14px 0 0;
+            color: var(--desc-color);
+        }
+
+        // ── Link (inside .hidden-content) ─────────────────────────────────────
+        &__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            color: var(--link-color);
+
+            svg {
+                display: block;
+                width: 18px;
+                height: 18px;
+                fill: currentColor;
+                flex-shrink: 0;
+                transition: transform 0.25s ease;
+            }
+
+            &:hover {
+                color: var(--accent-color);
+            }
+        }
+
+        // ── Hover / focus-visible states ──────────────────────────────────────
+        &:hover {
+            .brilliant-resource-card__inner-content {
+                align-items: flex-start;
+            }
+        }
+
+        &:hover,
+        .brilliant-resource-card-link:hover &,
+        .brilliant-resource-card-link:focus-visible & {
+            .brilliant-resource-card__image-wrap img {
+                transform: scale(1.06);
+            }
+
+            .brilliant-resource-card__title {
+                color: var(--accent-color);
+            }
+
+            // Reveal: undo all three collapsed properties
+            .hidden-content {
+                max-height: 300px; // generous ceiling; actual content drives real height
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .brilliant-resource-card__link svg {
+                transform: translateX(4px);
+            }
+        }
+    }
+}

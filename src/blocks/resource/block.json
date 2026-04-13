@@ -1,0 +1,97 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "brilliant/resource",
+    "version": "1.0.0",
+    "title": "Resource",
+    "category": "brilliant-blocks",
+    "description": "Display a resource card with image, icon, title, description and a CTA link. Description and link reveal on hover.",
+    "example": {},
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "__experimentalSkipSerialization": true,
+            "margin": true,
+            "padding": true,
+            "__experimentalDefaultControls": {
+                "margin": false,
+                "padding": false
+            }
+        }
+    },
+    "attributes": {
+        "image": {
+            "type": "object"
+        },
+        "iconName": {
+            "type": "string",
+            "default": "wordpress"
+        },
+        "iconType": {
+            "type": "string",
+            "default": "fill"
+        },
+        "customSvgCode": {
+            "type": "string"
+        },
+        "strokeWidth": {
+            "type": "number",
+            "default": 1.2
+        },
+        "title": {
+            "type": "string"
+        },
+        "titleTag": {
+            "type": "string",
+            "default": "h3"
+        },
+        "description": {
+            "type": "string"
+        },
+        "linkText": {
+            "type": "string",
+            "default": "Read More"
+        },
+        "linkUrl": {
+            "type": "string"
+        },
+        "linkTarget": {
+            "type": "string"
+        },
+        "iconBg": {
+            "type": "string"
+        },
+        "iconColor": {
+            "type": "string"
+        },
+        "titleColor": {
+            "type": "string"
+        },
+        "titleSize": {
+            "type": "string"
+        },
+        "descColor": {
+            "type": "string"
+        },
+        "descSize": {
+            "type": "string"
+        },
+        "linkColor": {
+            "type": "string"
+        },
+        "cardBg": {
+            "type": "string"
+        },
+        "accentColor": {
+            "type": "string"
+        },
+        "blockStyle": {
+            "type": "object"
+        }
+    },
+    "textdomain": "brilliant",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}

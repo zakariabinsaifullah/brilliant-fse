@@ -1,0 +1,11 @@
+/* Kadence Blocks */
+.is-style-radial-overlay::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: radial-gradient(104.44% 357.81% at 6.11% 44.67%, rgba(0, 0, 0, 0.8) 50%, rgba(122, 30, 43, 0.8) 100%);
+    z-index: 1;
+}
