@@ -18,13 +18,14 @@ if ( ! function_exists( 'brilliantfse_block_categories' ) ) :
 	 */
 	function brilliantfse_block_categories( $block_categories, $block_editor_context ) {
 		return array_merge(
-			$block_categories,
 			array(
 				array(
 					'slug'  => 'brilliant-blocks',
 					'title' => __( 'Brilliant Blocks', 'brilliant' ),
 				),
-			)
+			),
+			$block_categories
+
 		);
 	}
 endif;

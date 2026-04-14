@@ -46,7 +46,7 @@
                     "slug": "blnt-linear-gradient-2"
                 },
                 {
-                    "gradient": "linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 0%, rgba(221, 66, 66, 0) 100%)",
+                    "gradient": "linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 0%, rgba(221, 66, 66, 0.20) 100%)",
                     "name": "Linear",
                     "slug": "blnt-linear"
                 }
