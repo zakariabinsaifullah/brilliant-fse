@@ -266,6 +266,7 @@
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         transform: translateY(12px);
         transition: transform 0.25s ease;
+        box-sizing: border-box;
 
         .brilliant-team-carousel__popup.is-active & {
             transform: translateY(0);

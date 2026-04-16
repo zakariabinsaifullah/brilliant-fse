@@ -58,14 +58,19 @@
                     "slug": "blnt-white"
                 },
                 {
-                    "color": "#000000",
-                    "name": "Black",
-                    "slug": "blnt-black"
+                    "color": "#f2f2f2",
+                    "name": "Off White",
+                    "slug": "blnt-off-white"
                 },
                 {
                     "color": "#e4e2df",
                     "name": "Light Gray",
                     "slug": "blnt-light-gray"
+                },
+                {
+                    "color": "#000000",
+                    "name": "Black",
+                    "slug": "blnt-black"
                 },
                 {
                     "color": "#7a1e2b",

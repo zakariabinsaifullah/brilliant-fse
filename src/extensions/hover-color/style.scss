@@ -3,6 +3,7 @@ $hover-transition-duration: var(--hover-transition-duration, 200ms);
 $hover-transition-timing: var(--hover-transition-timing, ease);
 $hover-color: var(--hover-color);
 $hover-background-color: var(--hover-background-color);
+$hover-background-gradient: var(--hover-background-gradient);
 $hover-border-color: var(--hover-border-color);
 
 // Mixin for hover transitions
@@ -25,6 +26,13 @@ $hover-border-color: var(--hover-border-color);
 	}
 }
 
+// Gradients can't be CSS-transitioned, so no transition property here.
+.has-hover__background-gradient:not(.wp-block-button) {
+	&:hover {
+		background: $hover-background-gradient !important;
+	}
+}
+
 .has-hover__border-color:not(.wp-block-button) {
 	@include hover-transition(border-color);
 	&:hover {
@@ -41,6 +49,14 @@ $hover-border-color: var(--hover-border-color);
 	&:hover {
 		.wp-element-button {
 			color: $hover-color !important;
+		}
+	}
+}
+
+.wp-block-button.has-hover__background-gradient {
+	&:hover {
+		.wp-element-button {
+			background: $hover-background-gradient !important;
 		}
 	}
 }

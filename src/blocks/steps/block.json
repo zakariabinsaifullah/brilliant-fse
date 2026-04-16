@@ -1,0 +1,88 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "brilliant/steps",
+    "version": "1.0.0",
+    "title": "Steps",
+    "category": "brilliant-blocks",
+    "description": "Display a numbered step-by-step process with icons, titles and descriptions.",
+    "example": {},
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "__experimentalSkipSerialization": true,
+            "margin": true,
+            "padding": true,
+            "__experimentalDefaultControls": {
+                "margin": false,
+                "padding": false
+            }
+        }
+    },
+    "attributes": {
+        "resMode": {
+            "type": "string",
+            "default": "Desktop"
+        },
+        "columns": {
+            "type": "object",
+            "default": {
+                "Desktop": 3,
+                "Tablet": 1,
+                "Mobile": 1
+            }
+        },
+        "gaps": {
+            "type": "object",
+            "default": {
+                "Desktop": "50px",
+                "Tablet": "100px",
+                "Mobile": "100px"
+            }
+        },
+        "circleSize": {
+            "type": "string"
+        },
+        "circleBg": {
+            "type": "string"
+        },
+        "circleBorderColor": {
+            "type": "string"
+        },
+        "badgeBg": {
+            "type": "string"
+        },
+        "badgeColor": {
+            "type": "string"
+        },
+        "iconColor": {
+            "type": "string"
+        },
+        "iconSize": {
+            "type": "string"
+        },
+        "arrowColor": {
+            "type": "string"
+        },
+        "titleColor": {
+            "type": "string"
+        },
+        "titleSize": {
+            "type": "string"
+        },
+        "descColor": {
+            "type": "string"
+        },
+        "descSize": {
+            "type": "string"
+        },
+        "blockStyle": {
+            "type": "object"
+        }
+    },
+    "textdomain": "brilliant",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}

@@ -137,6 +137,14 @@ if ( ! function_exists( 'brilliantfse_block_styles' ) ) :
 				'label' => __( 'Radial Overlay', 'brilliant' ),
 			)
 		);
+
+		register_block_style(
+			'kadence/rowlayout',
+			array(
+				'name'  => 'bottom-overlay',
+				'label' => __( 'Bottom Overlay', 'brilliant' ),
+			)
+		);
 	}
 endif;
 add_action( 'init', 'brilliantfse_block_styles' );

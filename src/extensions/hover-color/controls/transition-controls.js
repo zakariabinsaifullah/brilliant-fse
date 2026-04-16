@@ -11,6 +11,7 @@ const HoverTransitionControls = ( { attributes, setAttributes } ) => {
 		hoverTransitionTiming,
 		hoverTextColor,
 		hoverBackgroundColor,
+		hoverBackgroundGradient,
 		hoverBorderColor,
 		customHoverTextColor,
 		customHoverBackgroundColor,
@@ -23,6 +24,7 @@ const HoverTransitionControls = ( { attributes, setAttributes } ) => {
 		customHoverBackgroundColor ||
 		hoverTextColor ||
 		hoverBackgroundColor ||
+		hoverBackgroundGradient ||
 		hoverBorderColor;
 
 	if ( ! hasHoverColor ) {

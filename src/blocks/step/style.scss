@@ -1,0 +1,165 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Step Block  (child of brilliant/steps)
+// All sizing/colour CSS vars are set by the parent steps block and cascade here.
+// ─────────────────────────────────────────────────────────────────────────────
+
+.brilliant-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative; // anchor for the arrow
+
+    // ── Visual row: circle + arrow ────────────────────────────────────────────
+    &__visual {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 28px;
+    }
+
+    // ── Circle ────────────────────────────────────────────────────────────────
+    &__circle-wrap {
+        position: relative;
+        flex-shrink: 0;
+        padding: 20px;
+        background: var(--circle-bg, #fff);
+        border-radius: 50%;
+    }
+
+    &__circle {
+        width: var(--circle-size, 140px);
+        height: var(--circle-size, 140px);
+        border-radius: 50%;
+        border: 1px dashed var(--circle-border-color, #cccccc);
+        background: var(--circle-bg, #fff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    // ── Badge ─────────────────────────────────────────────────────────────────
+    &__badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        min-width: 32px;
+        height: 32px;
+        padding: 0 6px;
+        border-radius: 50px;
+        background: var(--badge-bg, linear-gradient(180deg, #6c080a 0%, #9d272d 100%));
+        color: var(--badge-color, #ffffff);
+        font-size: 14px;
+        line-height: 32px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    // ── Icon ──────────────────────────────────────────────────────────────────
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--icon-color, #111111);
+
+        svg,
+        .brilliant-step__icon-svg svg {
+            display: block;
+            width: var(--icon-size, 48px);
+            height: var(--icon-size, 48px);
+            fill: none; // default stroke icons from design
+            stroke: currentColor;
+            stroke-width: 1.5;
+        }
+    }
+
+    // ── Arrow — positioned to the right of the circle, bridging to next step ──
+    &__arrow {
+        position: absolute;
+        right: 0;
+        top: 90px;
+        transform: translate(50%, -50%);
+        z-index: 1;
+        pointer-events: none;
+        background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDM5IiBoZWlnaHQ9IjIzNCIgdmlld0JveD0iMCAwIDQzOSAyMzQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik0wIDBoNDM4Ljg0djIzMy45MkgweiIvPjxkZWZzPjxwYXR0ZXJuIGlkPSJhIiBwYXR0ZXJuQ29udGVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgd2lkdGg9IjEiIGhlaWdodD0iMSI+PHVzZSB4bGluazpocmVmPSIjYiIgdHJhbnNmb3JtPSJtYXRyaXgoLjAwMzEgMCAwIC4wMDY0MiAuMzY3IC40MzMpIi8+PC9wYXR0ZXJuPjxpbWFnZSBpZD0iYiIgd2lkdGg9Ijg2IiBoZWlnaHQ9IjIxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bGluazpocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZZQUFBQVZDQVlBQUFEY21oazFBQUFBR1hSRldIUlRiMlowZDJGeVpRQkJaRzlpWlNCSmJXRm5aVkpsWVdSNWNjbGxQQUFBQXlGcFZGaDBXRTFNT21OdmJTNWhaRzlpWlM1NGJYQUFBQUFBQUR3L2VIQmhZMnRsZENCaVpXZHBiajBpNzd1L0lpQnBaRDBpVnpWTk1FMXdRMlZvYVVoNmNtVlRlazVVWTNwcll6bGtJajgrSUR4NE9uaHRjRzFsZEdFZ2VHMXNibk02ZUQwaVlXUnZZbVU2Ym5NNmJXVjBZUzhpSUhnNmVHMXdkR3M5SWtGa2IySmxJRmhOVUNCRGIzSmxJRFV1TlMxak1ERTBJRGM1TGpFMU1UUTRNU3dnTWpBeE15OHdNeTh4TXkweE1qb3dPVG94TlNBZ0lDQWdJQ0FnSWo0Z1BISmtaanBTUkVZZ2VHMXNibk02Y21SbVBTSm9kSFJ3T2k4dmQzZDNMbmN6TG05eVp5OHhPVGs1THpBeUx6SXlMWEprWmkxemVXNTBZWGd0Ym5NaklqNGdQSEprWmpwRVpYTmpjbWx3ZEdsdmJpQnlaR1k2WVdKdmRYUTlJaUlnZUcxc2JuTTZlRzF3UFNKb2RIUndPaTh2Ym5NdVlXUnZZbVV1WTI5dEwzaGhjQzh4TGpBdklpQjRiV3h1Y3pwNGJYQk5UVDBpYUhSMGNEb3ZMMjV6TG1Ga2IySmxMbU52YlM5NFlYQXZNUzR3TDIxdEx5SWdlRzFzYm5NNmMzUlNaV1k5SW1oMGRIQTZMeTl1Y3k1aFpHOWlaUzVqYjIwdmVHRndMekV1TUM5elZIbHdaUzlTWlhOdmRYSmpaVkpsWmlNaUlIaHRjRHBEY21WaGRHOXlWRzl2YkQwaVFXUnZZbVVnVUdodmRHOXphRzl3SUVORElDaFhhVzVrYjNkektTSWdlRzF3VFUwNlNXNXpkR0Z1WTJWSlJEMGllRzF3TG1scFpEcEJNamM0UlRoQ1EwSkNPRFV4TVVWR09FSkNNamxFTUVNd1F6azJNRGd3UlNJZ2VHMXdUVTA2Ukc5amRXMWxiblJKUkQwaWVHMXdMbVJwWkRwQk1qYzRSVGhDUkVKQ09EVXhNVVZHT0VKQ01qbEVNRU13UXprMk1EZ3dSU0krSUR4NGJYQk5UVHBFWlhKcGRtVmtSbkp2YlNCemRGSmxaanBwYm5OMFlXNWpaVWxFUFNKNGJYQXVhV2xrT2tFeU56aEZPRUpCUWtJNE5URXhSVVk0UWtJeU9VUXdRekJET1RZd09EQkZJaUJ6ZEZKbFpqcGtiMk4xYldWdWRFbEVQU0o0YlhBdVpHbGtPa0V5TnpoRk9FSkNRa0k0TlRFeFJVWTRRa0l5T1VRd1F6QkRPVFl3T0RCRklpOCtJRHd2Y21SbU9rUmxjMk55YVhCMGFXOXVQaUE4TDNKa1pqcFNSRVkrSUR3dmVEcDRiWEJ0WlhSaFBpQThQM2h3WVdOclpYUWdaVzVrUFNKeUlqOCt3enNwa1FBQUF1OUpSRUZVZU5yc21GdElGRkVZeDFlYmlNaTFpNkdVVzRROXBOMG9rUXFDc3A0aWs1U282TUdrMjBNdkdma2dJVlFQQmVGanQ1ZWl3b2lJb2l0R0dGMFE3U29aRWJaaFpnOXVVUmhFRnlKS3R2OEgveFBETU1mWmFjZHQzUEdESHp2TW5Ea3orNS92ZGs1R1BCNFBEWnYzbG1IazUvcnh2Y0pnSnBnS0pvTUovSjBFeG9HeElJdmpjbXp1L3dTaW9BZThBZTNnQWVqeitrVi85WDd3cmJBRllBR1lDNHJBUERCdGtKNzFFZHdIejhFajhEaFpzVVhZa1pHOFF2eEcvN2V3bzhGcVVBWktRY1JoL0Zmd2pnSjhCdDk0N2d1UHMraTE0c1haWUR6UmViUFZYb0ZMNENyRmRtdUY0Q1ZvZ3JpclVpMnNFbk05cU5DTWVRR2VNV3c3UUM5NEQzNTRFQkd6UUFtallnNllyaGtyenp3RGpvSllndk12QTNkNEhJRzRzVlFJV3c0MmE4UVVJYStEbStDSkJ3SzYvZEFpOG15d0NGVGFlUGNWY0F6Y2NwaHJQbmpLNHpvSTJ6Qll3azZrbU50dGNtVWJ1QVl1c3FqNHlSYUNkWXdzczBkM2cxUGd0TWFMdzB4TFloMFF0dGhyWWVYTDFZQnFteHdtNFhYT2gyTHFiQW5ZQnRiUXU1VTFnUlAwWm5QeGVtMzZHRVZTeURJOWVBbEozcGNaRGtwVUNlc2pERE81Zm1BSWlTcldBcXBBSHRnSjN2SjhHZjlyRDUwb3pQUHRwbnMzSnV1eCtSU3MyaEkyaDhGSlZ1NTBzclVVYzdHbFl6bk83bVNQS29EdzJDbi9JcXg4cGQxRW1WVEZnd2trK25Td2xlRFFBSjJGMk5JUm1kbGozRXk2aGYzZUNwV3M2YkY3aDFpb0oyTmQ3QmErTTlXTnNoblRuMmlPVlMyRkpPNWNodndHVUJ3UUw3WGFiN2FMTFpycmxVWUMvZDUrc010VWxQYUJob0R1clVoTHRwVUxuZkFBNDZLR3d5Um5UYm5rUEtoMXNTSkpGeXZuNmszNjhoa09ZOFdMbThYNWRNTFcwMU5WcFplZTdtN0FCSzFnNnN0eEVQSWV1QTFhMFEzODNkQXhiQ3ArbzJrSktoUHZTUEZ5MHc5V3dIN1Z1bytndGgrbGFEK1Vka3UzYldoWWxxTE5MRlN5dmJZSjNBaG9MdjBKbHFzS0R6cERMcmNYRFpPbnRqS0h0TkZqKzBMQnRWaXl0VVMxVzQwVVZaYWhwUUVYMVJNenVGUXI0YzdPaFdGSnZMRS9BZ3dBcHpTL1VOb2ErS1VBQUFBQVNVVk9SSzVDWUlJPSIvPjwvZGVmcz48L3N2Zz4=);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    // ── Horizontal arrow: desktop only ────────────────────────────────────────
+    &__arrow-svg--h {
+        display: block;
+        width: 90px;
+        height: auto;
+
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    // ── Vertical arrow: mobile only ───────────────────────────────────────────
+    &__arrow-svg--v {
+        display: none;
+        width: auto;
+        height: 60px;
+
+        @media (max-width: 767px) {
+            display: block;
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            top: auto;
+            transform: translateX(-50%);
+        }
+    }
+
+    // ── Text body ─────────────────────────────────────────────────────────────
+    &__body {
+        text-align: center;
+        width: 100%;
+    }
+
+    &__title {
+        margin: 0 0 12px;
+        font-size: clamp(20px, 4vw, 22px);
+        color: var(--title-color);
+        line-height: 1.4;
+    }
+
+    &__desc {
+        margin: 0;
+        color: var(--desc-color);
+    }
+
+    // ── Mobile: vertical arrow needs extra bottom padding on the visual ────────
+    @media (max-width: 767px) {
+        &__visual {
+            margin-bottom: 60px; // room for the downward arrow
+        }
+
+        // last step (arrow hidden) — no extra space
+        &:last-child &__visual {
+            margin-bottom: 28px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        &__arrow {
+            top: auto !important;
+            bottom: -75px;
+            transform: none !important;
+            height: 50px !important;
+            background-size: auto !important;
+        }
+    }
+}

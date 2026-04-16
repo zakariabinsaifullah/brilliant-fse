@@ -1,0 +1,35 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Steps Block — editor overrides
+// ─────────────────────────────────────────────────────────────────────────────
+
+.wp-block-brilliant-steps {
+    // Mirror the grid in the editor canvas
+    .brilliant-steps__inner {
+        display: grid;
+
+        // Editor always shows in desktop layout for clarity
+        grid-template-columns: repeat(var(--cols-d, 3), 1fr);
+        gap: var(--gap-d, 50px);
+    }
+
+    // tablet view
+    @media (max-width: 1024px) {
+        .brilliant-steps__inner {
+            grid-template-columns: repeat(var(--cols-t, 1), 1fr);
+            gap: var(--gap-t, 100px);
+        }
+    }
+
+    // mobile view
+    @media (max-width: 767px) {
+        .brilliant-steps__inner {
+            grid-template-columns: repeat(var(--cols-m, 1), 1fr);
+            gap: var(--gap-m, 100px);
+        }
+    }
+
+    // Appender sits below the steps grid, full width
+    .block-list-appender {
+        grid-column: 1 / -1;
+    }
+}

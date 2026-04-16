@@ -1,0 +1,47 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Steps Block — layout only; step-level styles live in step/style.scss
+// ─────────────────────────────────────────────────────────────────────────────
+
+.wp-block-brilliant-steps {
+    // Default CSS custom properties — overridden via blockStyle inline styles
+    --cols-d: 3;
+    --cols-t: 1;
+    --cols-m: 1;
+    --gap-d: 50px;
+    --gap-t: 100px;
+    --gap-m: 100px;
+    --circle-size: 140px;
+    --circle-bg: #ffffff;
+    --circle-border-color: #cccccc;
+    --badge-bg: #7a1e2b;
+    --badge-color: #ffffff;
+    --icon-color: '';
+    --icon-size: 48px;
+    --arrow-color: #333333;
+    --title-color: '';
+    --title-size: 20px;
+    --desc-color: '';
+    --desc-size: 16px;
+
+    .brilliant-steps__inner {
+        display: grid;
+
+        // Desktop
+        @media (min-width: 1025px) {
+            grid-template-columns: repeat(var(--cols-d), 1fr);
+            gap: var(--gap-d);
+        }
+
+        // Tablet
+        @media (min-width: 768px) and (max-width: 1024px) {
+            grid-template-columns: repeat(var(--cols-t), 1fr);
+            gap: var(--gap-t);
+        }
+
+        // Mobile
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(var(--cols-m), 1fr);
+            gap: var(--gap-m);
+        }
+    }
+}
