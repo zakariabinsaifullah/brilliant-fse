@@ -208,27 +208,57 @@
                     ]
                 },
                 {
-                    "name": "Libre Baskerville",
-                    "slug": "libre-baskerville",
-                    "fontFamily": "\"Libre Baskerville\", serif",
+                    "name": "Baskervville",
+                    "slug": "baskervville",
+                    "fontFamily": "Baskervville, serif",
                     "fontFace": [
                         {
-                            "src": ["file:./assets/fonts/libre-baskerville/libre-baskerville-400-normal.woff2"],
+                            "src": ["file:./assets/fonts/baskervville/baskervville-400-normal.woff2"],
                             "fontWeight": "400",
                             "fontStyle": "normal",
-                            "fontFamily": "\"Libre Baskerville\""
+                            "fontFamily": "Baskervville"
                         },
                         {
-                            "src": ["file:./assets/fonts/libre-baskerville/libre-baskerville-700-normal.woff2"],
+                            "src": ["file:./assets/fonts/baskervville/baskervville-500-normal.woff2"],
+                            "fontWeight": "500",
+                            "fontStyle": "normal",
+                            "fontFamily": "Baskervville"
+                        },
+                        {
+                            "src": ["file:./assets/fonts/baskervville/baskervville-600-normal.woff2"],
+                            "fontWeight": "600",
+                            "fontStyle": "normal",
+                            "fontFamily": "Baskervville"
+                        },
+                        {
+                            "src": ["file:./assets/fonts/baskervville/baskervville-700-normal.woff2"],
                             "fontWeight": "700",
                             "fontStyle": "normal",
-                            "fontFamily": "\"Libre Baskerville\""
+                            "fontFamily": "Baskervville"
                         },
                         {
-                            "src": ["file:./assets/fonts/libre-baskerville/libre-baskerville-400-italic.woff2"],
+                            "src": ["file:./assets/fonts/baskervville/baskervville-400-italic.woff2"],
                             "fontWeight": "400",
                             "fontStyle": "italic",
-                            "fontFamily": "\"Libre Baskerville\""
+                            "fontFamily": "Baskervville"
+                        },
+                        {
+                            "src": ["file:./assets/fonts/baskervville/baskervville-500-italic.woff2"],
+                            "fontWeight": "500",
+                            "fontStyle": "italic",
+                            "fontFamily": "Baskervville"
+                        },
+                        {
+                            "src": ["file:./assets/fonts/baskervville/baskervville-600-italic.woff2"],
+                            "fontWeight": "600",
+                            "fontStyle": "italic",
+                            "fontFamily": "Baskervville"
+                        },
+                        {
+                            "src": ["file:./assets/fonts/baskervville/baskervville-700-italic.woff2"],
+                            "fontWeight": "700",
+                            "fontStyle": "italic",
+                            "fontFamily": "Baskervville"
                         }
                     ]
                 }
@@ -803,7 +833,7 @@
             },
             "h1": {
                 "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--libre-baskerville)",
+                    "fontFamily": "var(--wp--preset--font-family--baskervville)",
                     "fontSize": "var(--wp--preset--font-size--blnt-huge)",
                     "fontStyle": "normal",
                     "fontWeight": "400",
@@ -812,7 +842,7 @@
             },
             "h2": {
                 "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--libre-baskerville)",
+                    "fontFamily": "var(--wp--preset--font-family--baskervville)",
                     "fontSize": "var(--wp--preset--font-size--blnt-xxxx-large)",
                     "fontStyle": "normal",
                     "fontWeight": "400",
@@ -821,7 +851,7 @@
             },
             "h3": {
                 "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--libre-baskerville)",
+                    "fontFamily": "var(--wp--preset--font-family--baskervville)",
                     "fontSize": "var(--wp--preset--font-size--blnt-xxx-large)",
                     "fontStyle": "normal",
                     "fontWeight": "400",
@@ -830,7 +860,7 @@
             },
             "h4": {
                 "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--libre-baskerville)",
+                    "fontFamily": "var(--wp--preset--font-family--baskervville)",
                     "fontSize": "var(--wp--preset--font-size--blnt-xx-large)",
                     "fontStyle": "normal",
                     "fontWeight": "400",
@@ -839,7 +869,7 @@
             },
             "h5": {
                 "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--libre-baskerville)",
+                    "fontFamily": "var(--wp--preset--font-family--baskervville)",
                     "fontSize": "var(--wp--preset--font-size--blnt-x-large)",
                     "fontStyle": "normal",
                     "fontWeight": "400",
@@ -849,7 +879,7 @@
             },
             "h6": {
                 "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--libre-baskerville)",
+                    "fontFamily": "var(--wp--preset--font-family--baskervville)",
                     "fontSize": "var(--wp--preset--font-size--blnt-regular)",
                     "fontStyle": "normal",
                     "fontWeight": "400",
@@ -863,7 +893,7 @@
                     "text": "var(--wp--preset--color--blnt-black)"
                 },
                 "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--libre-baskerville)",
+                    "fontFamily": "var(--wp--preset--font-family--baskervville)",
                     "fontStyle": "normal",
                     "fontWeight": "400",
                     "letterSpacing": "0px",

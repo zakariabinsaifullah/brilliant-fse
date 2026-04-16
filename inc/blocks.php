@@ -35,7 +35,7 @@ if ( ! function_exists( 'brilliant_register_blocks' ) ) :
 		if ( ! is_dir( $build_dir ) ) {
 			if ( is_dir( $src_dir ) ) {
 				foreach ( glob( $src_dir . '/*', GLOB_ONLYDIR ) as $block_path ) {
-					if ( file_exists( $block_path . '/block.json' ) ) {
+					if ( file_exists( $block_path . '/block.json' ) && file_exists( $block_path . '/index.asset.php' ) ) {
 						register_block_type( $block_path );
 					}
 				}
@@ -59,7 +59,7 @@ if ( ! function_exists( 'brilliant_register_blocks' ) ) :
 			foreach ( array_keys( $manifest ) as $block_slug ) {
 				$block_dir = $build_dir . '/' . $block_slug;
 
-				if ( is_dir( $block_dir ) && file_exists( $block_dir . '/block.json' ) ) {
+				if ( is_dir( $block_dir ) && file_exists( $block_dir . '/block.json' ) && file_exists( $block_dir . '/index.asset.php' ) ) {
 					register_block_type( $block_dir );
 				}
 			}
@@ -69,7 +69,7 @@ if ( ! function_exists( 'brilliant_register_blocks' ) ) :
 
 		// No manifest — scan the build directory directly as a last resort.
 		foreach ( glob( $build_dir . '/*', GLOB_ONLYDIR ) as $block_dir ) {
-			if ( file_exists( $block_dir . '/block.json' ) ) {
+			if ( file_exists( $block_dir . '/block.json' ) && file_exists( $block_dir . '/index.asset.php' ) ) {
 				register_block_type( $block_dir );
 			}
 		}
