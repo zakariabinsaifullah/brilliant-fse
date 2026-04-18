@@ -1,0 +1,136 @@
+.wp-block-brilliant-step-timeline {
+    position: relative;
+
+    .timeline {
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0 80px; /* Horizontal padding moved here to prevent overflow with 5 items */
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+        
+        /* Prominent Horizontal Scrollbar Styling */
+        &::-webkit-scrollbar {
+            height: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: var(--dot-color, #a509e2);
+            border-radius: 10px;
+            border: 2px solid #000;
+        }
+    }
+
+    .timeline ol {
+        list-style: none;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0;
+        /* tall padding gives room above & below for cards */
+        padding: 180px 0; /* Horizontal padding is 0 now */
+        width: 100%; /* Fill container by default */
+        min-width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* Line segment */
+    .timeline ol li {
+        position: relative;
+        flex: 0 0 20%; /* Exactly 5 items for the available width */
+        height: 2px;
+        background: var(--line-color, rgba(165, 9, 226, 0.814));
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ── DOT at the LEFT edge of every li ── */
+    .timeline ol li::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--dot-color, #1006de);
+        transform: translateY(-50%);
+        z-index: 2;
+    }
+
+    /* ── TEXT CARD: anchored to the dot (left: -5px) ── */
+    .timeline ol li div {
+        position: absolute;
+        left: -5px;
+        width: 200px;
+        white-space: normal;
+        font-size: 0.88rem;
+        line-height: 1.55;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ODD steps → card hangs BELOW the line */
+    .timeline ol li:nth-child(odd) div {
+        top: calc(100% + 15px);
+        justify-content: flex-start;
+    }
+
+    /* EVEN steps → card floats ABOVE the line */
+    .timeline ol li:nth-child(even) div {
+        bottom: calc(100% + 15px);
+        justify-content: flex-end;
+    }
+
+    /* Step heading styles */
+    .timeline ol li div > *:first-child {
+        display: block;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #000;
+        line-height: 1.2;
+        margin: 0 0 7px 0;
+    }
+
+    /* Description styles */
+    .timeline ol li div .step-description {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #333;
+    }
+
+    /* ── TABLET ── */
+    @media (max-width: 1024px) {
+        .timeline {
+            padding: 0 40px;
+        }
+        .timeline ol li {
+            flex: 0 0 33.333%; /* 3 items per row on tablet */
+            min-width: 250px;
+        }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+        .timeline {
+            padding: 0 20px;
+        }
+        .timeline ol {
+            padding: 150px 0;
+        }
+        .timeline ol li {
+            flex: 0 0 250px; /* Force horizontal scroll on mobile */
+        }
+        .timeline ol li div {
+            width: 180px;
+        }
+    }
+}

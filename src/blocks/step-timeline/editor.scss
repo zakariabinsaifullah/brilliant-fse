@@ -1,0 +1,29 @@
+.wp-block-brilliant-step-timeline {
+    .timeline-list {
+        display: flex;
+        overflow: visible; // Let parent .timeline handle scrolling
+        gap: 0 !important;
+        scroll-behavior: smooth;
+        padding: 150px 0; // Increase room for top/bottom cards and toolbars
+
+        .wp-block-brilliant-step-timeline-item {
+            flex: 1 0 20%;
+            min-width: 200px;
+            max-width: 25%;
+            list-style: none;
+            box-sizing: border-box;
+            position: relative;
+            transition: all 0.2s ease;
+
+            // Ensure the active item is always on top
+            &.is-selected,
+            &:hover {
+                z-index: 100;
+            }
+            .block-editor-rich-text__editable {
+                min-width: 100px;
+                min-height: 1em;
+            }
+        }
+    }
+}

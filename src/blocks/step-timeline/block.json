@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "brilliant/step-timeline",
+    "version": "1.0.0",
+    "title": "Step Timeline",
+    "category": "brilliant-blocks",
+    "icon": "slides",
+    "description": "Create flexible sliders and carousels using any inner blocks",
+    "example": {},
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"]
+    },
+    "attributes": {
+        "lineColor": {
+            "type": "string",
+            "default": "rgba(165, 9, 226, 0.814)"
+        },
+        "dotColor": {
+            "type": "string",
+            "default": "#1006de"
+        },
+        "blockStyle": {
+            "type": "object"
+        }
+    },
+    "textdomain": "brilliant",
+    "editorScript": ["file:./index.js"],
+    "editorStyle": ["file:./index.css"],
+    "style": ["file:./style-index.css"],
+    "viewScript": ["file:./view.js"]
+}
